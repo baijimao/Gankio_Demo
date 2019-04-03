@@ -5,7 +5,7 @@ package com.baijimao.gankio_demo.json.today;
  * @date: 2019/3/31
  * Description:
  */
-public class RestVedioBean {
+public class RestVideoBean {
 
     /**
      * _id : 5c4578ae9d212264ce006f4b

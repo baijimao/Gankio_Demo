@@ -11,7 +11,7 @@ public class ResultsBean {
     private List<AndroidBean> androidBeans;
     private List<AppBean> appBeans;
     private List<IOSBean> iosBeans;
-    private List<RestVedioBean> restVedioBeans;
+    private List<RestVideoBean> restVideoBeans;
     private List<FrontEndBean> frontEndBeans;
     private List<ExpandResourceBean> expandResourceBeans;
     private List<BlindRecommendBean> blindRecommendBeans;
@@ -41,12 +41,12 @@ public class ResultsBean {
         this.iosBeans = iosBeans;
     }
 
-    public List<RestVedioBean> getRestVedioBeans() {
-        return restVedioBeans;
+    public List<RestVideoBean> getRestVideoBeans() {
+        return restVideoBeans;
     }
 
-    public void setRestVedioBeans(List<RestVedioBean> restVedioBeans) {
-        this.restVedioBeans = restVedioBeans;
+    public void setRestVedioBeans(List<RestVideoBean> restVideoBeans) {
+        this.restVideoBeans = restVideoBeans;
     }
 
     public List<FrontEndBean> getFrontEndBeans() {
@@ -87,7 +87,7 @@ public class ResultsBean {
                 "androidBeans=" + androidBeans +
                 ", appBeans=" + appBeans +
                 ", iosBeans=" + iosBeans +
-                ", restVedioBeans=" + restVedioBeans +
+                ", restVideoBeans=" + restVideoBeans +
                 ", frontEndBeans=" + frontEndBeans +
                 ", expandResourceBeans=" + expandResourceBeans +
                 ", blindRecommendBeans=" + blindRecommendBeans +
