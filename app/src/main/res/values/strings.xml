@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Gank.io_Demo</string>
+    <string name="card_image_content_description">a view to display image from welfare</string>
 </resources>

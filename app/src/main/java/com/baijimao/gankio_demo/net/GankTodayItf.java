@@ -1,4 +1,5 @@
-package com.baijimao.gankio_demo.net.retrofit;
+package com.baijimao.gankio_demo.net;
+
 
 import com.baijimao.gankio_demo.json.GankIoToday;
 
@@ -7,10 +8,10 @@ import retrofit2.http.GET;
 
 /**
  * @author: baijimao
- * @date: 2019/4/9
+ * @date: 2019/4/10
  * Description:
  */
-public interface GetTodayItf {
+public interface GankTodayItf {
 
     @GET("today")
     Call<GankIoToday> getToday();

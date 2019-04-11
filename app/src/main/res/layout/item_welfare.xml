@@ -8,22 +8,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/item_imageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:contentDescription="@string/card_image_content_description"/>
 
-            <ImageView
-                android:id="@+id/item_imageView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/item_textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
     </android.support.v7.widget.CardView>
 
 </LinearLayout>

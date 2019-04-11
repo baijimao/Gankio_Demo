@@ -1,13 +1,19 @@
 package com.baijimao.gankio_demo;
 
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.baijimao.gankio_demo.net.retrofit.RetrofitUtils;
+import com.baijimao.gankio_demo.fragment.WelfareFragment;
+import com.baijimao.gankio_demo.json.GankIoToday;
+import com.baijimao.gankio_demo.net.Retrofit2Utils;
 
-public class MainActivity extends AppCompatActivity {
+
+public class MainActivity extends AppCompatActivity implements Retrofit2Utils.GankIoTodayCallback {
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     private TabLayout mTabLayout = null;
     private ViewPager mViewPager = null;
@@ -17,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RetrofitUtils.getInstance().requestToday();
+        Retrofit2Utils.getInstance().getGankIoToday();
+        Retrofit2Utils.getInstance().setmGankIoTodayCallback(this);
     }
 
     @Override
@@ -25,12 +32,26 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
     }
 
-    private void initTab() {
-        mTabLayout = findViewById(R.id.tabLayout);
-        // set tab scrollable
-        mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-
-
-        mViewPager = findViewById(R.id.viewPager);
+    @Override
+    public void onSuccessed(GankIoToday gankIoToday) {
+        WelfareFragment welfareFragment = new WelfareFragment(this, gankIoToday.getResults().getWelfareBeans());
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.content_fragment, welfareFragment);
+        transaction.commit();
     }
+
+    @Override
+    public void onFailed() {
+
+    }
+
+//    private void initTab() {
+//        mTabLayout = findViewById(R.id.tabLayout);
+//        // set tab scrollable
+//        mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+//
+//
+//        mViewPager = findViewById(R.id.viewPager);
+//    }
 }

@@ -1,17 +1,16 @@
-package com.baijimao.gankio_demo.welfare;
+package com.baijimao.gankio_demo.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.baijimao.gankio_demo.R;
 import com.baijimao.gankio_demo.json.today.WelfareBean;
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -20,12 +19,12 @@ import java.util.List;
  * @date: 2019/4/9
  * Description:
  */
-public class WelfareRecyclerViewAdapter extends RecyclerView.Adapter<WelfareRecyclerViewAdapter.ViewHolder> {
+public class WelfareAdapter extends RecyclerView.Adapter<WelfareAdapter.ViewHolder> {
 
     private Context mContext;
     private List<WelfareBean> mWelfareBeans;
 
-    public WelfareRecyclerViewAdapter(Context context, List<WelfareBean> welfareBeans) {
+    public WelfareAdapter(Context context, List<WelfareBean> welfareBeans) {
         this.mContext = context;
         this.mWelfareBeans = welfareBeans;
     }
@@ -40,32 +39,31 @@ public class WelfareRecyclerViewAdapter extends RecyclerView.Adapter<WelfareRecy
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-
+        String url = mWelfareBeans.get(i).getUrl();
+        Glide.with(mContext).asDrawable().load(url).into(viewHolder.getImageView());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mWelfareBeans.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        CardView mCardView;
-        ImageView mImageView;
-        TextView mTextView;
+        private ImageView mImageView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            mCardView = itemView.findViewById(R.id.item_cardView);
             mImageView = itemView.findViewById(R.id.item_imageView);
-            mTextView = itemView.findViewById(R.id.item_textView);
-
-            mCardView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
 
+        }
+
+        public ImageView getImageView() {
+            return mImageView;
         }
     }
 }

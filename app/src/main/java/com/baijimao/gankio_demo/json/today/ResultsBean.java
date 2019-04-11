@@ -1,5 +1,7 @@
 package com.baijimao.gankio_demo.json.today;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 /**
@@ -8,13 +10,21 @@ import java.util.List;
  * Description:
  */
 public class ResultsBean {
+    @SerializedName("Android")
     private List<AndroidBean> androidBeans;
+    @SerializedName("App")
     private List<AppBean> appBeans;
+    @SerializedName("iOS")
     private List<IOSBean> iosBeans;
+    @SerializedName("休息视频")
     private List<RestVideoBean> restVideoBeans;
+    @SerializedName("前端")
     private List<FrontEndBean> frontEndBeans;
+    @SerializedName("拓展视频")
     private List<ExpandResourceBean> expandResourceBeans;
+    @SerializedName("瞎推荐")
     private List<BlindRecommendBean> blindRecommendBeans;
+    @SerializedName("福利")
     private List<WelfareBean> welfareBeans;
 
     public List<AndroidBean> getAndroidBeans() {
